@@ -54,10 +54,17 @@ public class HomeActivity extends AppCompatActivity {
                 final String description = descriptionInput.getText().toString();
                 final ParseUser user = ParseUser.getCurrentUser();
 
-                final File file = new File(imagePath);
+                final File file = getPhotoFileUri(photoFileName);
                 final ParseFile parseFile = new ParseFile(file);
-
-                createPost(description, parseFile, user);
+                parseFile.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null)
+                            createPost(description, parseFile, user);
+                        else
+                            e.printStackTrace();
+                    }
+                });
             }
         });
 
@@ -146,7 +153,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void createPost(String description, ParseFile imageFile,ParseUser user) {
+    private void createPost(String description, ParseFile imageFile, ParseUser user) {
         final Post newPost = new Post();
         newPost.setDescription(description);
         newPost.setImage(imageFile);

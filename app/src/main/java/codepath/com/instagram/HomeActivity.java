@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
     private EditText descriptionInput;
     private Button createButton;
     private Button refreshButton;
+    private Button feedButton;
 
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
@@ -47,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         descriptionInput = findViewById(R.id.description_et);
         createButton = findViewById(R.id.create_btn);
         refreshButton = findViewById(R.id.refresh_btn);
+        feedButton = findViewById(R.id.feed);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +74,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loadTopPosts();
+            }
+        });
+
+        feedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, TimelineActivity.class);
+                startActivity(intent);
             }
         });
 

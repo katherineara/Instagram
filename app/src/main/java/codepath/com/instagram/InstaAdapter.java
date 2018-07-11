@@ -43,7 +43,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         final Post post = mPosts.get(position);
 
         // populate the views according to this data
-        holder.tvUsername.setText(post.getUser().toString());
+        holder.tvUsername.setText(post.getUser().getUsername().toString());
         holder.tvDescription.setText(post.getDescription().toString());
 
         // TODO - GlideApp or Glide

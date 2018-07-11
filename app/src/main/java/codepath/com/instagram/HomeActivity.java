@@ -143,11 +143,11 @@ public class HomeActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // by this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                Bitmap resizedBitmap = Bitmap.createScaledBitmap(takenImage, 100, 100, false);
+                //Bitmap resizedBitmap = Bitmap.createScaledBitmap(takenImage, 100, 100, false);
                 // RESIZE BITMAP, see section below
                 // Load the taken image into a preview
                 ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
-                ivPreview.setImageBitmap(resizedBitmap);
+                ivPreview.setImageBitmap(takenImage);
             } else { // Result was a failure
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }

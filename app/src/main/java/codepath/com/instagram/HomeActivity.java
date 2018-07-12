@@ -21,6 +21,8 @@ import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import org.parceler.Parcels;
+
 import java.io.File;
 
 import codepath.com.instagram.model.Post;
@@ -62,6 +64,7 @@ public class HomeActivity extends AppCompatActivity {
                             e.printStackTrace();
                     }
                 });
+
             }
         });
     }
@@ -147,5 +150,8 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+        Intent intent = new Intent(HomeActivity.this, TimelineActivity.class);
+        intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(newPost));
+        startActivity(intent);
     }
 }

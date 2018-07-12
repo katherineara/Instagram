@@ -12,6 +12,8 @@ import android.view.View;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class TimelineActivity extends AppCompatActivity {
     RecyclerView rvPosts;
     Post post;
     private SwipeRefreshLayout swipeContainer;
+    // TODO: Magic Numbers
+    public static final int REQUEST_CODE = 1;
 
 
     @Override
@@ -125,9 +129,20 @@ public class TimelineActivity extends AppCompatActivity {
             swipeContainer.setRefreshing(false);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+            post = (Post) Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
+            posts.add(0, post);
+            instaAdapter.notifyItemInserted(0);
+            rvPosts.scrollToPosition(0);
+        }
+    }
+
     public void launchCreate(View view) {
         Intent intent = new Intent(TimelineActivity.this, HomeActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE);
     }
 
     public void launchProfile(View view) {

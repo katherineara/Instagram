@@ -4,27 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pine"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/signupButton"
-        android:layout_width="wrap_content"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/loginButton"
-        android:layout_marginStart="83dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
         android:text="Sign Up" />
 
     <Button
         android:id="@+id/loginButton"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="211dp"
+        android:text="Log In" />
+
+    <ImageView
+        android:id="@+id/instatitle"
+        android:layout_width="334dp"
+        android:layout_height="79dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        app:srcCompat="@drawable/instatitle"
+        android:tint="#000000"/>
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="83dp"
-        android:layout_marginTop="197dp"
-        android:text="Login" />
+        android:layout_centerHorizontal="true"
+        android:text="English (United States)" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/username_layout"
@@ -32,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/password_layout"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="-125dp">
+        android:layout_marginBottom="-178dp">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/etUsername"
@@ -47,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="178dp"
         app:passwordToggleEnabled="true">
 
         <android.support.design.widget.TextInputEditText
@@ -57,14 +73,5 @@
             android:hint="password"
             android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/title"
-        android:layout_width="310dp"
-        android:layout_height="65dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        app:srcCompat="@drawable/insta" />
 
 </RelativeLayout>

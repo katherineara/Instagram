@@ -8,22 +8,25 @@
 
     <ImageView
         android:id="@+id/home"
-        android:layout_width="61dp"
-        android:layout_height="42dp"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        app:srcCompat="@drawable/home"
+        android:layout_marginBottom="1dp"
+        android:layout_marginStart="0dp"
+        app:srcCompat="@drawable/instagram_home_filled_24"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="459dp" />
 
     <ImageView
         android:id="@+id/create_page"
         android:layout_width="wrap_content"
-        android:layout_height="52dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="4dp"
         android:onClick="launchCreate"
-        app:srcCompat="@drawable/create"
+        app:srcCompat="@drawable/instagram_new_post_outline_24"
         tools:layout_editor_absoluteX="92dp"
         tools:layout_editor_absoluteY="459dp" />
 
@@ -41,4 +44,13 @@
         android:layout_alignParentTop="true" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="62dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="3dp"
+        app:srcCompat="@drawable/instagram_user_outline_24" />
 </RelativeLayout>

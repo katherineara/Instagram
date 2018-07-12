@@ -16,14 +16,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
-import java.util.List;
 
 import codepath.com.instagram.model.Post;
 
@@ -32,7 +30,6 @@ public class HomeActivity extends AppCompatActivity {
     private static final String imagePath = Environment.getExternalStorageDirectory() + "/Desktop/beach.jpg";
     private EditText descriptionInput;
     private Button createButton;
-    private Button refreshButton;
     private Button feedButton;
 
     public final String APP_TAG = "MyCustomApp";
@@ -47,7 +44,6 @@ public class HomeActivity extends AppCompatActivity {
 
         descriptionInput = findViewById(R.id.description_et);
         createButton = findViewById(R.id.create_btn);
-        refreshButton = findViewById(R.id.refresh_btn);
         feedButton = findViewById(R.id.feed);
 
         createButton.setOnClickListener(new View.OnClickListener() {
@@ -70,13 +66,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        refreshButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadTopPosts();
-            }
-        });
-
         feedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,29 +73,11 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-        final Post.Query postsQuery = new Post.Query();
-        postsQuery.getTop().withUser();
-
-        postsQuery.getQuery(Post.class).findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> objects, ParseException e) {
-                if (e == null) {
-                    for (int i = 0; i < objects.size(); ++i) {
-                        try {
-                            Log.d("HomeActivity", "Post(" + i + ") " +
-                                    objects.get(i).getDescription() + "\nusername = "
-                                    + objects.get(i).getUser().fetchIfNeeded().getUsername()
-                            );
-                        } catch (ParseException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                } else {
-                    e.printStackTrace();
-                }
-            }
-        });
+    public void launchTimeline(View view) {
+        Intent intent = new Intent(HomeActivity.this, TimelineActivity.class);
+        startActivity(intent);
     }
 
     public void onLaunchCamera(View view) {
@@ -175,31 +146,6 @@ public class HomeActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     Log.d("HomeActivity", "Create post success");
-                } else {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    private void loadTopPosts() {
-        final Post.Query postsQuery = new Post.Query();
-        postsQuery.getTop().withUser();
-
-        postsQuery.getQuery(Post.class).findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> objects, ParseException e) {
-                if (e == null) {
-                    for (int i = 0; i < objects.size(); ++i) {
-                        try {
-                            Log.d("HomeActivity", "Post(" + i + ") " +
-                                    objects.get(i).getDescription() + "\nusername = "
-                                    + objects.get(i).getUser().fetchIfNeeded().getUsername()
-                            );
-                        } catch (ParseException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
                 } else {
                     e.printStackTrace();
                 }

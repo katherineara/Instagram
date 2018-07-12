@@ -1,11 +1,13 @@
 package codepath.com.instagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -121,5 +123,10 @@ public class TimelineActivity extends AppCompatActivity {
             });
             // Now we call setRefreshing(false) to signal refresh has finished
             swipeContainer.setRefreshing(false);
+    }
+
+    public void launchCreate(View view) {
+        Intent intent = new Intent(TimelineActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 }

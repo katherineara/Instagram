@@ -32,7 +32,6 @@ public class DetailsActivity extends AppCompatActivity {
         tvUsername.setText(post.getUser().getUsername().toString());
         tvDescription.setText(post.getDescription().toString());
 
-        // TODO - GlideApp or Glide
         Glide.with(this)
                 .load(post.getImage().getUrl())
                 .into(ivImage);

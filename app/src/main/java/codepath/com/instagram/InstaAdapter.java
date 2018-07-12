@@ -49,7 +49,6 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         holder.tvUsername.setText(post.getUser().getUsername().toString());
         holder.tvDescription.setText(post.getDescription().toString());
 
-        // TODO - GlideApp or Glide
         Glide.with(context)
                 .load(post.getImage().getUrl())
                 .into(holder.ivImage);

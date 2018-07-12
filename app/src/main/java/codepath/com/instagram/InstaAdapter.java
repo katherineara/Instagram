@@ -47,6 +47,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
 
         // populate the views according to this data
         holder.tvUsername.setText(post.getUser().getUsername().toString());
+        holder.tvUsername2.setText(post.getUser().getUsername().toString());
         holder.tvDescription.setText(post.getDescription().toString());
 
         Glide.with(context)
@@ -61,6 +62,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
         @BindView(R.id.tvUsername) public TextView tvUsername;
+        @BindView(R.id.tvUsername2) public TextView tvUsername2;
         @BindView(R.id.ivImage) public ImageView ivImage;
         @BindView(R.id.tvDescription) public TextView tvDescription;
 

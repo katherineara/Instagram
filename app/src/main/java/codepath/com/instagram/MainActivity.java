@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText usernameInput;
     private EditText passwordInput;
     private Button loginButton;
-    private Button signupButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.etUsername);
         passwordInput = findViewById(R.id.etPassword);
         loginButton = findViewById(R.id.loginButton);
-        signupButton = findViewById(R.id.signupButton);
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
@@ -47,15 +45,12 @@ public class MainActivity extends AppCompatActivity {
                 login(username, password);
             }
         });
+    }
 
-        signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String username = usernameInput.getText().toString();
-                final String password = passwordInput.getText().toString();
-                signup(username, password);
-            }
-        });
+    public void signupListener(View view) {
+        final String username = usernameInput.getText().toString();
+        final String password = passwordInput.getText().toString();
+        signup(username, password);
     }
 
     private void signup(String username, String password) {

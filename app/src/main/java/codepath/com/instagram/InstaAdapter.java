@@ -46,9 +46,12 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         final Post post = mPosts.get(position);
 
         // populate the views according to this data
-        holder.tvUsername.setText(post.getUser().getUsername().toString());
+        holder.tvUsername.setText("@" + post.getUser().getUsername().toString());
         holder.tvUsername2.setText(post.getUser().getUsername().toString());
         holder.tvDescription.setText(post.getDescription().toString());
+
+        String time =post.getCreatedAt().toString().substring(0, 11);
+        holder.tvTime.setText("Created on " + time);
 
         Glide.with(context)
                 .load(post.getImage().getUrl())
@@ -65,6 +68,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         @BindView(R.id.tvUsername2) public TextView tvUsername2;
         @BindView(R.id.ivImage) public ImageView ivImage;
         @BindView(R.id.tvDescription) public TextView tvDescription;
+        @BindView(R.id.tvTime) public TextView tvTime;
 
         public ViewHolder(View itemView) {
             super(itemView);

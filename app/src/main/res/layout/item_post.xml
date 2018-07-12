@@ -15,9 +15,10 @@
         android:fontFamily="sans-serif"
         android:text="Username"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="20sp"
         tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteY="3dp"
+        android:textStyle="italic"/>
 
     <ImageView
         android:id="@+id/ivImage"
@@ -30,14 +31,14 @@
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="243dp"
-        android:layout_height="67dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/dm"
         android:fontFamily="sans-serif"
         android:text="Caption"
         android:textAlignment="textStart"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tvUsername2"
@@ -87,4 +88,13 @@
         android:layout_marginTop="3dp"
         android:tint="@color/black"
         app:srcCompat="@drawable/ufi_save" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvUsername2"
+        android:text="Time"
+        android:textSize="13sp" />
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.etPassword);
         loginButton = findViewById(R.id.loginButton);
         signupButton = findViewById(R.id.signupButton);
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            Toast.makeText(this, "Welcome Back", Toast.LENGTH_LONG);
+            final Intent intent = new Intent(MainActivity.this, TimelineActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

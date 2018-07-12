@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimelineActivity">
+    tools:context=".ProfileActivity">
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:onClick="logout"
+        android:text="Log out"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="112dp" />
 
     <ImageView
         android:id="@+id/home"
@@ -14,7 +26,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="1dp"
         android:layout_marginStart="0dp"
-        app:srcCompat="@drawable/instagram_home_filled_24"
+        app:srcCompat="@drawable/instagram_home_outline_24"
+        android:onClick="launchTimeline"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="459dp" />
 
@@ -30,28 +43,12 @@
         tools:layout_editor_absoluteX="92dp"
         tools:layout_editor_absoluteY="459dp" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/swipeContainer"
-        android:layout_width="match_parent"
-        android:layout_height="459dp">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvPosts"
-        android:layout_width="match_parent"
-        android:layout_height="459dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
-
-    </android.support.v4.widget.SwipeRefreshLayout>
-
     <ImageView
-        android:id="@+id/profile"
+        android:id="@+id/imageView"
         android:layout_width="62dp"
         android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="3dp"
-        app:srcCompat="@drawable/instagram_user_outline_24"
-        android:onClick="launchProfile"/>
+        app:srcCompat="@drawable/instagram_user_filled_24" />
 </RelativeLayout>

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -38,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
     File photoFile;
+    public ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +48,12 @@ public class HomeActivity extends AppCompatActivity {
 
         descriptionInput = findViewById(R.id.description_et);
         createButton = findViewById(R.id.create_btn);
+        pb = (ProgressBar) findViewById(R.id.pbLoading);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pb.setVisibility(ProgressBar.VISIBLE);
                 final String description = descriptionInput.getText().toString();
                 final ParseUser user = ParseUser.getCurrentUser();
 
@@ -152,6 +156,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         Intent intent = new Intent(HomeActivity.this, TimelineActivity.class);
         intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(newPost));
+        pb.setVisibility(ProgressBar.INVISIBLE);
         startActivity(intent);
     }
 }

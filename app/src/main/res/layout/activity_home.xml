@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="148dp"
         android:text="Create"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="234dp"
+        android:layout_marginBottom="214dp"
         android:onClick="onLaunchCamera"
         android:text="Camera"
         app:layout_constraintBottom_toTopOf="@id/create_btn"
@@ -84,5 +84,14 @@
         android:layout_marginBottom="3dp"
         app:srcCompat="@drawable/instagram_user_outline_24"
         android:onClick="launchProfile"/>
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/ivPreview"
+        android:layout_marginEnd="17dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>

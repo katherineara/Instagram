@@ -65,21 +65,39 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.ivHeart.setImageResource(R.drawable.ufi_heart_active);
-                Integer moreLikes = Integer.parseInt(numberOfLikes);
-                moreLikes = moreLikes + 1;
-                post.setLikes(Integer.toString(moreLikes));
-                post.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Log.d("InstaAdapter", "Like post success");
-                        } else {
-                            e.printStackTrace();
+                if ((holder.ivHeart.getDrawable().getConstantState().equals(context.getResources().getDrawable(R.drawable.ufi_heart).getConstantState()))) {
+                    holder.ivHeart.setImageResource(R.drawable.ufi_heart_active);
+                    Integer moreLikes = Integer.parseInt(post.getLikes());
+                    moreLikes = moreLikes + 1;
+                    post.setLikes(Integer.toString(moreLikes));
+                    post.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Log.d("InstaAdapter", "Like post success");
+                            } else {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                });
-                holder.tvNumber.setText(Integer.toString(moreLikes) + " ");
+                    });
+                    holder.tvNumber.setText(Integer.toString(moreLikes) + " ");
+                } else {
+                    holder.ivHeart.setImageResource(R.drawable.ufi_heart);
+                    Integer lessLikes = Integer.parseInt(post.getLikes());
+                    lessLikes = lessLikes - 1;
+                    post.setLikes(Integer.toString(lessLikes));
+                    post.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Log.d("InstaAdapter", "Like post success");
+                            } else {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    holder.tvNumber.setText(Integer.toString(lessLikes) + " ");
+                }
             }
         });
 

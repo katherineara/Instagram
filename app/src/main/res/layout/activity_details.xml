@@ -3,38 +3,129 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailsActivity">
+    android:layout_height="wrap_content"
+    tools:context=".DetailsActivity"
+    android:paddingTop="10dp">
 
     <TextView
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="serif"
+        android:layout_toRightOf="@+id/ivProfile"
+        android:fontFamily="sans-serif"
         android:text="Username"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="3dp" />
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <ImageView
         android:id="@+id/ivImage"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/tvUsername"
-        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
         app:srcCompat="@android:color/holo_blue_bright" />
 
     <TextView
         android:id="@+id/tvDescription"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvUsername2"
+        android:layout_toEndOf="@+id/tvUsername2"
+        android:fontFamily="sans-serif"
+        android:text="Caption"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvUsername2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvLikes"
+        android:fontFamily="sans-serif"
+        android:paddingRight="5dp"
+        android:text="Username"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <ImageView
+        android:id="@+id/heart"
+        android:layout_width="40dp"
+        android:layout_height="31dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ivImage"
-        android:fontFamily="serif"
-        android:text="Caption"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        app:srcCompat="@drawable/ufi_heart" />
+
+    <ImageView
+        android:id="@+id/comment"
+        android:layout_width="35dp"
+        android:layout_height="31dp"
+        android:layout_below="@+id/ivImage"
+        android:layout_toEndOf="@+id/heart"
+        app:srcCompat="@drawable/ufi_comment" />
+
+    <ImageView
+        android:id="@+id/dm"
+        android:layout_width="44dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivImage"
+        android:layout_marginStart="72dp"
+        app:srcCompat="@drawable/ufi_new_direct" />
+
+    <ImageView
+        android:id="@+id/save"
+        android:layout_width="32dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/ivImage"
+        android:layout_marginTop="3dp"
+        android:tint="@color/black"
+        app:srcCompat="@drawable/ufi_save" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvDescription"
+        android:text="Time"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="31dp"
+        android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingRight="3dp"
+        app:srcCompat="@drawable/instagram_user_filled_24" />
+
+    <TextView
+        android:id="@+id/tvLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heart"
+        android:layout_toRightOf="@+id/tvNumber"
+        android:text="likes"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/heart"
+        android:text="Number"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

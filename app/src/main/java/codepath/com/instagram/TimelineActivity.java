@@ -149,4 +149,8 @@ public class TimelineActivity extends AppCompatActivity {
         Intent intent = new Intent(TimelineActivity.this, ProfileActivity.class);
         startActivity(intent);
     }
+
+    public void likePost(View view) {
+
+    }
 }

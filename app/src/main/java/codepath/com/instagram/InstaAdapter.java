@@ -55,6 +55,12 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         String time = post.getCreatedAt().toString().substring(0, 11);
         holder.tvTime.setText("Created on " + time);
 
+        // holder.tvNumber.setText(Integer.toString(5));
+        String numberOfLikes = post.getLikes();
+        if (numberOfLikes != null) {
+            holder.tvNumber.setText(numberOfLikes + " ");
+        }
+
         Glide.with(context)
                 .load(post.getImage().getUrl())
                 .into(holder.ivImage);
@@ -80,6 +86,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         @BindView(R.id.tvDescription) public TextView tvDescription;
         @BindView(R.id.tvTime) public TextView tvTime;
         @BindView(R.id.ivProfile) public ImageView ivProfile;
+        @BindView(R.id.tvNumber) public TextView tvNumber;
 
         public ViewHolder(View itemView) {
             super(itemView);

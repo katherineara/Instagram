@@ -48,8 +48,8 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         final Post post = mPosts.get(position);
 
         // populate the views according to this data
-        holder.tvUsername.setText("@" + post.getUser().getUsername().toString());
-        holder.tvUsername2.setText(post.getUser().getUsername().toString());
+        holder.tvUsername.setText(post.getUser().getUsername().toString());
+        holder.tvUsername2.setText("@" + post.getUser().getUsername().toString());
         holder.tvDescription.setText(post.getDescription().toString());
 
         String time = post.getCreatedAt().toString().substring(0, 11);

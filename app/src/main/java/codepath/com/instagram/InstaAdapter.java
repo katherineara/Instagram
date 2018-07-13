@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.parse.ParseFile;
 
 import org.parceler.Parcels;
 
@@ -50,12 +51,19 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         holder.tvUsername2.setText(post.getUser().getUsername().toString());
         holder.tvDescription.setText(post.getDescription().toString());
 
-        String time =post.getCreatedAt().toString().substring(0, 11);
+        String time = post.getCreatedAt().toString().substring(0, 11);
         holder.tvTime.setText("Created on " + time);
 
         Glide.with(context)
                 .load(post.getImage().getUrl())
                 .into(holder.ivImage);
+
+        ParseFile profileImage = post.getUser().getParseFile("profilePic");
+        if (profileImage != null) {
+            Glide.with(context)
+                    .load(profileImage.getUrl())
+                    .into(holder.ivProfile);
+        }
     }
 
     @Override
@@ -69,6 +77,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         @BindView(R.id.ivImage) public ImageView ivImage;
         @BindView(R.id.tvDescription) public TextView tvDescription;
         @BindView(R.id.tvTime) public TextView tvTime;
+        @BindView(R.id.ivProfile) public ImageView ivProfile;
 
         public ViewHolder(View itemView) {
             super(itemView);

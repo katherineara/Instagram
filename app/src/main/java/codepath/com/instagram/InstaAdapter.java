@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.SaveCallback;
 
 import org.parceler.Parcels;
 
@@ -57,7 +60,6 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         holder.tvTime.setText("Created on " + time);
 
         final String numberOfLikes = post.getLikes();
-
         holder.tvNumber.setText(numberOfLikes + " ");
 
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +68,18 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
                 holder.ivHeart.setImageResource(R.drawable.ufi_heart_active);
                 Integer moreLikes = Integer.parseInt(numberOfLikes);
                 moreLikes = moreLikes + 1;
+                post.setLikes(Integer.toString(moreLikes));
+                post.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            Log.d("InstaAdapter", "Like post success");
+                        } else {
+                            e.printStackTrace();
+                        }
+                    }
+                });
                 holder.tvNumber.setText(Integer.toString(moreLikes) + " ");
-
             }
         });
 

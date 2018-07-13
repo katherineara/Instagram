@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseFile;
 
 import org.parceler.Parcels;
@@ -62,6 +63,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         if (profileImage != null) {
             Glide.with(context)
                     .load(profileImage.getUrl())
+                    .apply(RequestOptions.circleCropTransform())
                     .into(holder.ivProfile);
         }
     }

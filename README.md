@@ -8,6 +8,7 @@ Time spent: **X25** hours spent in total
 
 The following **required** functionality is completed:
 
+- [x] Style the login page to look like the real Instagram login page.
 - [x] User can sign up to create a new account using Parse authentication
 - [x] User can log in and log out of his or her account
 - [x] The current signed in user is persisted across app restarts
@@ -18,7 +19,6 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [x] Style the login page to look like the real Instagram login page.
 - [x] Style the feed to look like the real Instagram feed.
 - [ ] User should switch between different tabs - viewing all posts (feed view), capture (camera and photo gallery view) and profile tabs (posts made) using a Bottom Navigation View.
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
@@ -36,7 +36,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
+Allows user to use toggle and see the password while typing it in!
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 

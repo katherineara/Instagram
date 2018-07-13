@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,7 +44,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         // get the data according to position
         final Post post = mPosts.get(position);
 
@@ -55,11 +56,20 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         String time = post.getCreatedAt().toString().substring(0, 11);
         holder.tvTime.setText("Created on " + time);
 
-        // holder.tvNumber.setText(Integer.toString(5));
-        String numberOfLikes = post.getLikes();
-        if (numberOfLikes != null) {
-            holder.tvNumber.setText(numberOfLikes + " ");
-        }
+        final String numberOfLikes = post.getLikes();
+
+        holder.tvNumber.setText(numberOfLikes + " ");
+
+        holder.likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.ivHeart.setImageResource(R.drawable.ufi_heart_active);
+                Integer moreLikes = Integer.parseInt(numberOfLikes);
+                moreLikes = moreLikes + 1;
+                holder.tvNumber.setText(Integer.toString(moreLikes) + " ");
+
+            }
+        });
 
         Glide.with(context)
                 .load(post.getImage().getUrl())
@@ -87,6 +97,8 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         @BindView(R.id.tvTime) public TextView tvTime;
         @BindView(R.id.ivProfile) public ImageView ivProfile;
         @BindView(R.id.tvNumber) public TextView tvNumber;
+        @BindView(R.id.likeButton) public Button likeButton;
+        @BindView(R.id.ivHeart) public ImageView ivHeart;
 
         public ViewHolder(View itemView) {
             super(itemView);

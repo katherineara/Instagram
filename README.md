@@ -2,7 +2,7 @@
 
 **Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **X25** hours spent in total
+Time spent: **25** hours spent in total
 
 ## User Stories
 
@@ -38,18 +38,18 @@ The following **additional** features are implemented:
 
 - [x] List anything else that you can get done to improve the app functionality!
 Allows user to use toggle and see the password while typing it in!
-User can also unlike a post!
+User can like and unlike a post and it will updated to the Parse server!
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I would like to explore Fragments deeper to see the pros and cons. 
+2. I would be interested in learning more about launching the camera.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/1GaEcsJaaM.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/8ibJggs82E.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [RecordIt](http://recordit.co).
 

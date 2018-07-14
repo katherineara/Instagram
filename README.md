@@ -27,7 +27,7 @@ The following **optional** features are implemented:
 - User Profiles:
    - [ ] Allow the logged in user to add a profile photo
    - [x] Display the profile photo with each post
-   - [ ] Tapping on a post's username or profile photo goes to that user's profile page
+   - [x] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [x] User can like a post and see number of likes for each post in the post details screen.
 - [ ] Create a custom Camera View on your phone.
@@ -39,6 +39,7 @@ The following **additional** features are implemented:
 - [x] List anything else that you can get done to improve the app functionality!
 Allows user to use toggle and see the password while typing it in!
 User can like and unlike a post and it will updated to the Parse server!
+You can view a user's profile page to see the message and follow buttons!
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -49,7 +50,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/8ibJggs82E.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/c2o8aOayN6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [RecordIt](http://recordit.co).
 

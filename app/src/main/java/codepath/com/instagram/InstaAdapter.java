@@ -110,6 +110,15 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
             }
         });
 
+        holder.tvUsername2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UserActivity.class);
+                intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(post));
+                context.startActivity(intent);
+            }
+        });
+
         Glide.with(context)
                 .load(post.getImage().getUrl())
                 .into(holder.ivImage);
